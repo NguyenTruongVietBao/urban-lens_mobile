@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "urbanlensmobile",
+    "scheme": "urbanlens",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -33,7 +33,15 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsDownloadToken": "sk.eyJ1IjoiYmFyb25uMDIwNCIsImEiOiJjbWY3MWR3bGUwYXRmMmtzaGRlNG45MXhsIn0.H6s6hjS2ICxv3Kt8uxWbKg",
+          "RNMapboxMapsVersion": "11.*"
+        }
+      ],
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true
