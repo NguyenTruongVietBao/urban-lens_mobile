@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "urban-lens_mobile",
-    "slug": "urban-lens_mobile",
+    "name": "urban-lens",
+    "slug": "urban-lens",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -16,7 +16,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.baronn0204.urbanlens"
     },
     "web": {
       "bundler": "metro",
@@ -45,6 +46,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "f9d10612-29c4-4576-a7cc-7c1ad9a82196"
+      }
+    },
+    "owner": "baronn0204"
   }
 }
