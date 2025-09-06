@@ -6,13 +6,22 @@
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "MAPBOX_DOWNLOADS_TOKEN": "sk.eyJ1IjoiYmFyb25uMDIwNCIsImEiOiJjbWY3MWR3bGUwYXRmMmtzaGRlNG45MXhsIn0.H6s6hjS2ICxv3Kt8uxWbKg"
+      }
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "MAPBOX_DOWNLOADS_TOKEN": "sk.eyJ1IjoiYmFyb25uMDIwNCIsImEiOiJjbWY3MWR3bGUwYXRmMmtzaGRlNG45MXhsIn0.H6s6hjS2ICxv3Kt8uxWbKg"
+      }
     },
     "production": {
-      "autoIncrement": true
+      "autoIncrement": true,
+      "env": {
+        "MAPBOX_DOWNLOADS_TOKEN": "sk.eyJ1IjoiYmFyb25uMDIwNCIsImEiOiJjbWY3MWR3bGUwYXRmMmtzaGRlNG45MXhsIn0.H6s6hjS2ICxv3Kt8uxWbKg"
+      }
     }
   },
   "submit": {
