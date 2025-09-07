@@ -1,3 +1,5 @@
+const { success } = require("zod");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // NOTE: Update this to include the paths to all files that contain Nativewind classes.
@@ -6,8 +8,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#161622",
-        secondary: "#FF9C01",
+        primary: "#5265FF",
+        secondary: "#FE7474",
+        link: "#4B4DED",
+        dark: "#131629",
+        light: "#FFFFFF",
+        success: "#31D0AA",
+        error: "#FF4D4D",
+        text: "#09101D",
+        subText: "#8C8CA1",
+        accent: "#ECF1F4",
       },
       fontFamily: {
         mBlack: ["MontserratBlack", "sans-serif"],

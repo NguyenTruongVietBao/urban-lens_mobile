@@ -6,7 +6,7 @@ export default function EventCreatorLayout() {
     <GestureHandlerRootView className="flex-1">
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(drawer)" options={{ title: "Overview" }} />
-        <Stack.Screen name="product/[id].tsx" />
+        <Stack.Screen name="[id]" />
       </Stack>
     </GestureHandlerRootView>
   );
