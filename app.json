@@ -35,13 +35,6 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      [
-        "@rnmapbox/maps",
-        {
-          "RNMapboxMapsDownloadToken": "sk.eyJ1IjoiYmFyb25uMDIwNCIsImEiOiJjbWY3MWR3bGUwYXRmMmtzaGRlNG45MXhsIn0.H6s6hjS2ICxv3Kt8uxWbKg",
-          "RNMapboxMapsVersion": "11.0.0"
-        }
-      ],
       "expo-secure-store"
     ],
     "experiments": {
