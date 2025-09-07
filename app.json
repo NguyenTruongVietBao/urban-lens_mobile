@@ -9,7 +9,11 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.baronn0204.urbanlens",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -46,6 +50,12 @@
         "projectId": "f9d10612-29c4-4576-a7cc-7c1ad9a82196"
       }
     },
-    "owner": "baronn0204"
+    "owner": "baronn0204",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/f9d10612-29c4-4576-a7cc-7c1ad9a82196"
+    }
   }
 }

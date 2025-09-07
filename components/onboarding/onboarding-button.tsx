@@ -1,4 +1,5 @@
 import { OnboardingData } from "@/lib/constants";
+// import { useAuthStore } from "@/stores/useAuthStore";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React from "react";
@@ -26,6 +27,7 @@ export default function OnboardingButton({
   x,
 }: Props) {
   const router = useRouter();
+  // const { completeOnboarding } = useAuthStore();
   const { width: SCREEN_WIDTH } = useWindowDimensions();
 
   const buttonAnimatedStyle = useAnimatedStyle(() => {
@@ -88,7 +90,8 @@ export default function OnboardingButton({
             animated: true,
           });
         } else {
-          router.push("/login");
+          // completeOnboarding();
+          router.push("/auth/login");
         }
       }}
     >

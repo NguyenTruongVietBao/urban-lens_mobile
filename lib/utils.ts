@@ -1,3 +1,5 @@
+import { router } from "expo-router";
+
 export const formatDateTime = (date: Date) => {
   return date.toLocaleString("vi-VN", {
     year: "numeric",
@@ -15,4 +17,8 @@ export const formatDate = (date: Date) => {
     month: "2-digit",
     day: "2-digit",
   });
+};
+
+export const handleRouteBack = () => {
+  router.back();
 };

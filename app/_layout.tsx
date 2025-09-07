@@ -14,6 +14,10 @@ import "../global.css";
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  // const { hasCompletedOnboarding } = useAuthStore();
+  const hasCompletedOnboarding = true;
+  const isAuthenticated = true;
+  const isEventCreator = true;
   const segment = useSegments();
   console.log("🚀 ~ Current route:", segment);
 
@@ -41,10 +45,20 @@ export default function RootLayout() {
   return (
     <AppProvider>
       <StatusBar style="auto" />
-      <Stack>
-        <Stack.Screen name="onboarding" options={{ headerShown: false }} />
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="login" options={{ headerShown: false }} />
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Protected guard={isAuthenticated && isEventCreator}>
+          <Stack.Screen name="event-creator" />
+        </Stack.Protected>
+        <Stack.Protected guard={isAuthenticated && !isEventCreator}>
+          <Stack.Screen name="registered-user" />
+        </Stack.Protected>
+        <Stack.Protected guard={!isAuthenticated && hasCompletedOnboarding}>
+          <Stack.Screen name="auth" />
+          <Stack.Screen name="map" />
+        </Stack.Protected>
+        <Stack.Protected guard={!isAuthenticated && !hasCompletedOnboarding}>
+          <Stack.Screen name="index" />
+        </Stack.Protected>
       </Stack>
     </AppProvider>
   );
