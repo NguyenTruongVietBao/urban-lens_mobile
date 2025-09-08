@@ -7,8 +7,8 @@ export default function HomeScreen() {
   return (
     <SafeAreaView>
       <Text>EventCreatorHomeScreen</Text>
-      <Link href="./event-creator/123">Product 1</Link>
-      <Link href="./profile">Go to Profile</Link>
+      <Link href="/event-creator/123">Product Detail</Link>
+      <Link href="/event-creator/profile">Go to Profile</Link>
     </SafeAreaView>
   );
 }

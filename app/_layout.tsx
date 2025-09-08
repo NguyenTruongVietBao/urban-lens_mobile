@@ -6,16 +6,16 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import "../global.css";
 
-// SplashScreen.setOptions({
-//   duration: 1000,
-//   fade: true,
-// });
+SplashScreen.setOptions({
+  duration: 1000,
+  fade: true,
+});
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const hasCompletedOnboarding = true;
-  const isAuthenticated = true;
+  const hasCompletedOnboarding = false;
+  const isAuthenticated = false;
   const isEventCreator = false;
   const segment = useSegments();
   console.log("🚀 ~ Current route:", segment);

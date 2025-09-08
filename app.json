@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "urban-lens",
+    "name": "Urban Lens",
     "slug": "urban-lens",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,7 +21,12 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.baronn0204.urbanlens"
+      "package": "com.baronn0204.urbanlens",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBQ5WXgXLWb7tmIkzdkOyj18QA2DzDlOqU"
+        }
+      }
     },
     "web": {
       "bundler": "metro",
@@ -33,10 +38,16 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/logo-png.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#FE7474"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Show current location on map."
         }
       ],
       "expo-secure-store"
