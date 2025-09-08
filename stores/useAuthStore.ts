@@ -1,24 +1,16 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { create } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
-
-interface User {
-  _id: string;
-  email: string;
-  name: string;
-  avatar: string;
-  role: string;
-}
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { create } from 'zustand';
+import { createJSONStorage, persist } from 'zustand/middleware';
 
 interface AuthState {
-  user: User | null;
+  user: any;
   accessToken: string | null;
   isAuthenticated: boolean;
-  isEventCreator?: boolean;
+  isEventCreator: boolean;
   hasCompletedOnboarding: boolean;
   completeOnboarding: () => void;
   resetOnboarding: () => void;
-  login: (user: User, accessToken: string) => void;
+  login: (user: any, accessToken: string) => void;
   logout: () => void;
 }
 
@@ -28,13 +20,14 @@ export const useAuthStore = create<AuthState>()(
       user: null,
       accessToken: null,
       isAuthenticated: false,
+      isEventCreator: false,
       hasCompletedOnboarding: false,
       login: (user, accessToken) => {
         set({
           user,
           accessToken,
-          isAuthenticated: user ? true : false,
-          isEventCreator: user.role === "event-creator" ? true : false,
+          isAuthenticated: true,
+          isEventCreator: user.role === 'USER' ? false : true,
         });
       },
       logout: () =>
@@ -62,7 +55,7 @@ export const useAuthStore = create<AuthState>()(
       },
     }),
     {
-      name: "auth-storage",
+      name: 'auth-storage',
       storage: createJSONStorage(() => AsyncStorage),
     }
   )

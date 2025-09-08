@@ -1,11 +1,11 @@
-import apiClient from "@/lib/api";
+import apiClient from '@/lib/api';
 
-export const login = async (data: any) => {
-  const res = await apiClient.post("/auth/login", data);
+export const loginApi = async (data: any) => {
+  const res = await apiClient.post('/auth/login', data);
   return res.data;
 };
 
-export const register = async (data: any) => {
-  const res = await apiClient.post("/auth/register", data);
+export const registerApi = async (data: any) => {
+  const res = await apiClient.post('/auth/register', data);
   return res.data;
 };

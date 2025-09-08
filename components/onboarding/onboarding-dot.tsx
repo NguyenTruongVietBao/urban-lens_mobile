@@ -44,8 +44,8 @@ export default function OnboardingDot({ index, x }: Props) {
   const animatedColorStyle = useAnimatedStyle(() => {
     const backgroundColor = interpolateColor(
       x.value,
-      [0 * SCREEN_WIDTH, 2 * SCREEN_WIDTH],
-      ["#005b4f", "#1e2169", "#f15937"]
+      [0 * SCREEN_WIDTH, 1 * SCREEN_WIDTH, 2 * SCREEN_WIDTH],
+      ["#31D0AA", "#fff", "#FE7474"]
     );
     return { backgroundColor };
   });

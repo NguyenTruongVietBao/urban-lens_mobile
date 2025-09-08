@@ -75,7 +75,7 @@ export default function OnboardingItem({ item, index, x }: Props) {
         />
       </Animated.View>
       <Text
-        className={`text-center mb-3 mx-5 font-mSemiBold text-5xl`}
+        className={`text-center mb-16 mx-5 font-mSemiBold text-5xl`}
         style={{ color: item.textColor }}
       >
         {item.text}

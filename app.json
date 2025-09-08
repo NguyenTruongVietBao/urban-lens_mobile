@@ -6,6 +6,8 @@
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "urbanlens",
+    "host": "*",
+    "pathPrefix": "/",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -17,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/logo-png.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
@@ -26,7 +28,21 @@
         "googleMaps": {
           "apiKey": "AIzaSyBQ5WXgXLWb7tmIkzdkOyj18QA2DzDlOqU"
         }
-      }
+      },
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "urbanlens",
+              "host": "*",
+              "pathPrefix": "/"
+            }
+          ],
+          "categories": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
     },
     "web": {
       "bundler": "metro",
