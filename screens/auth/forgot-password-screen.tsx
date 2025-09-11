@@ -5,6 +5,7 @@ import { useRouter } from 'expo-router';
 import { Mail, Send } from 'lucide-react-native';
 import React from 'react';
 import { Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function ForgotPasswordScreen() {
   const router = useRouter();
@@ -21,7 +22,7 @@ export default function ForgotPasswordScreen() {
   };
 
   return (
-    <View className='flex-1 bg-white px-6 justify-center items-center py-20'>
+    <SafeAreaView className='flex-1 bg-white px-6 justify-center items-center'>
       <HeaderMini
         onBack={() => router.back()}
         title=''
@@ -50,6 +51,6 @@ export default function ForgotPasswordScreen() {
           icon={<Send color={'white'} />}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

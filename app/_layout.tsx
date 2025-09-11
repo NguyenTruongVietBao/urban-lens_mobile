@@ -1,22 +1,19 @@
 import { AppProvider } from '@/provider/AppProvider';
+import SplashScreenCustom from '@/screens/splash-screen';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { useFonts } from 'expo-font';
 import { Stack, useSegments } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import '../global.css';
-
-SplashScreen.setOptions({
-  duration: 1000,
-  fade: true,
-});
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const { isAuthenticated, isEventCreator, hasCompletedOnboarding } =
     useAuthStore();
+  const [isShowSplash, setIsShowSplash] = useState(true);
   const segment = useSegments();
   console.log('🚀 ~ Current route:', segment);
 
@@ -35,13 +32,19 @@ export default function RootLayout() {
     if (loaded) {
       SplashScreen.hide();
     }
+    const timeout = setTimeout(() => {
+      setIsShowSplash(false);
+    }, 2000);
+    return () => clearTimeout(timeout);
   }, [loaded]);
 
   if (!loaded) {
     return null;
   }
 
-  return (
+  return isShowSplash ? (
+    <SplashScreenCustom />
+  ) : (
     <AppProvider>
       <StatusBar style='auto' />
       <Stack screenOptions={{ headerShown: false }}>

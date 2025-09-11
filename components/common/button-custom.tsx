@@ -1,5 +1,5 @@
-import React from "react";
-import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
+import React from 'react';
+import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
 
 interface ButtonCustomProps {
   title: string;
@@ -8,24 +8,29 @@ interface ButtonCustomProps {
   className?: string;
   icon?: React.ReactNode;
   loading?: boolean;
+  mode?: 'default' | 'outline';
 }
 
 export default function ButtonCustom({
   title,
   onPress,
   disabled = false,
-  className = "",
+  className = '',
   icon,
   loading = false,
+  mode = 'default',
 }: ButtonCustomProps) {
   const getButtonClasses = () => {
     let baseClasses =
-      "bg-primary px-6 py-3 rounded-xl flex-row items-center justify-center min-h-12";
+      mode === 'outline'
+        ? 'border-2 border-primary bg-transparent px-6 py-3 rounded-xl flex-row items-center justify-center min-h-12'
+        : 'bg-primary px-6 py-3 rounded-xl flex-row items-center justify-center min-h-12';
 
     if (disabled || loading) {
-      baseClasses += " opacity-50";
+      baseClasses += ' opacity-50';
     } else {
-      baseClasses += " active:bg-blue-700";
+      baseClasses +=
+        mode === 'outline' ? ' active:bg-primary/10' : ' active:bg-blue-700';
     }
 
     return `${baseClasses} ${className}`;
@@ -34,17 +39,23 @@ export default function ButtonCustom({
   const renderContent = () => {
     if (loading) {
       return (
-        <View className="flex-row items-center">
-          <ActivityIndicator size="small" color="#FFFFFF" className="mr-2" />
-          <Text className="text-white font-semibold text-base">Loading...</Text>
+        <View className='flex-row items-center'>
+          <ActivityIndicator size='small' color='#FFFFFF' className='mr-2' />
+          <Text className='text-white font-semibold text-base'>Loading...</Text>
         </View>
       );
     }
 
     return (
-      <View className="flex-row items-center justify-center gap-2">
-        <Text className="text-white font-mSemiBold text-lg">{title}</Text>
-        {icon && <View className="mr-2">{icon}</View>}
+      <View className='flex-row items-center justify-center gap-2'>
+        <Text
+          className={`${
+            mode === 'outline' ? 'text-primary' : 'text-white'
+          } font-mSemiBold text-lg`}
+        >
+          {title}
+        </Text>
+        {icon && <View className='mr-2'>{icon}</View>}
       </View>
     );
   };

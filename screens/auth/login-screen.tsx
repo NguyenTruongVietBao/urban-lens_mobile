@@ -103,7 +103,7 @@ export default function LoginScreen() {
           <Text className='text-base font-mMedium'>
             Do not have an account?
           </Text>
-          <Link href='/auth/register' className='text-link font-mSemiBold'>
+          <Link href='./auth/register' className='text-link font-mSemiBold'>
             Sign Up
           </Link>
         </View>

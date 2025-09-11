@@ -1,14 +1,9 @@
+local.properties
+sdk.dir=C:\\Users\\Admin\\AppData\\Local\\Android\\Sdk
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
-
-## Framework
-
-- Chat: Gifted chat
-- Alert: react native toast message
-- Chart: Victory native
-- Calender: react native calender
-- FlashList
 
 ## Get started
 

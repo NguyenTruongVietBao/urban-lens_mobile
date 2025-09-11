@@ -1,10 +1,9 @@
-import { OnboardingData } from '@/lib/constants';
-import { useAuthStore } from '@/stores/useAuthStore';
-// import { useAuthStore } from "@/stores/useAuthStore";
-import { MaterialIcons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
-import React from 'react';
-import { TouchableWithoutFeedback, useWindowDimensions } from 'react-native';
+import { OnboardingData } from "@/lib/constants";
+import { useAuthStore } from "@/stores/useAuthStore";
+import { MaterialIcons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
+import React from "react";
+import { TouchableWithoutFeedback, useWindowDimensions } from "react-native";
 import Animated, {
   AnimatedRef,
   interpolateColor,
@@ -12,7 +11,7 @@ import Animated, {
   useAnimatedStyle,
   withSpring,
   withTiming,
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 
 type Props = {
   flatlistRef: AnimatedRef<Animated.FlatList<OnboardingData>>;
@@ -45,7 +44,7 @@ export default function OnboardingButton({
     const backgroundColor = interpolateColor(
       x.value,
       [0 * SCREEN_WIDTH, 1 * SCREEN_WIDTH, 2 * SCREEN_WIDTH],
-      ['#31D0AA', '#fff', '#FE7474']
+      ["#31D0AA", "#fff", "#FE7474"]
     );
     return { backgroundColor };
   });
@@ -91,23 +90,23 @@ export default function OnboardingButton({
             animated: true,
           });
         } else {
+          router.push("/auth/login");
           completeOnboarding();
-          router.push('/auth/login');
         }
       }}
     >
       <Animated.View
-        className='bg-black p-3 rounded-full justify-center items-center overflow-hidden w-14 h-14'
+        className="bg-black p-3 rounded-full justify-center items-center overflow-hidden w-14 h-14"
         style={[animatedColorStyle, buttonAnimatedStyle]}
       >
         <Animated.Text
           style={[textAnimatedStyle]}
-          className='absolute font-mSemiBold text-white'
+          className="absolute font-mSemiBold text-white"
         >
           Get Started
         </Animated.Text>
-        <Animated.View style={[iconsAnimatedStyle]} className='absolute'>
-          <MaterialIcons name='navigate-next' size={30} color='black' />
+        <Animated.View style={[iconsAnimatedStyle]} className="absolute">
+          <MaterialIcons name="navigate-next" size={30} color="black" />
         </Animated.View>
       </Animated.View>
     </TouchableWithoutFeedback>

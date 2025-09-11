@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { TextInput, TouchableOpacity, View } from "react-native";
+import React, { useEffect, useRef } from 'react';
+import { TextInput, TouchableOpacity, View } from 'react-native';
 
 interface OTPInputProps {
   length?: 4 | 6;
@@ -19,15 +19,15 @@ export default function OTPInput({
   onComplete,
   disabled = false,
   autoFocus = true,
-  className = "",
+  className = '',
   testID,
 }: OTPInputProps) {
   const inputRefs = useRef<(TextInput | null)[]>([]);
-  const otpArray = value.split("").slice(0, length);
+  const otpArray = value.split('').slice(0, length);
 
   // Fill empty slots
   while (otpArray.length < length) {
-    otpArray.push("");
+    otpArray.push('');
   }
 
   useEffect(() => {
@@ -46,12 +46,12 @@ export default function OTPInput({
     if (disabled) return;
 
     // Only allow numeric input
-    const numericText = text.replace(/[^0-9]/g, "");
+    const numericText = text.replace(/[^0-9]/g, '');
 
     if (numericText.length <= 1) {
       const newOtpArray = [...otpArray];
       newOtpArray[index] = numericText;
-      const newOtp = newOtpArray.join("");
+      const newOtp = newOtpArray.join('');
       onChange(newOtp);
 
       // Auto focus next input
@@ -64,18 +64,18 @@ export default function OTPInput({
   const handleKeyPress = (key: string, index: number) => {
     if (disabled) return;
 
-    if (key === "Backspace") {
+    if (key === 'Backspace') {
       if (!otpArray[index] && index > 0) {
         // If current input is empty, go to previous and clear it
         const newOtpArray = [...otpArray];
-        newOtpArray[index - 1] = "";
-        onChange(newOtpArray.join(""));
+        newOtpArray[index - 1] = '';
+        onChange(newOtpArray.join(''));
         inputRefs.current[index - 1]?.focus();
       } else if (otpArray[index]) {
         // Clear current input
         const newOtpArray = [...otpArray];
-        newOtpArray[index] = "";
-        onChange(newOtpArray.join(""));
+        newOtpArray[index] = '';
+        onChange(newOtpArray.join(''));
       }
     }
   };
@@ -95,16 +95,16 @@ export default function OTPInput({
     isFocused: boolean
   ) => {
     let baseClasses =
-      "w-16 h-16 border-2 rounded-xl text-center text-3xl font-mBold";
+      'w-16 h-16 border-2 rounded-xl text-center text-3xl font-mBold';
 
     if (disabled) {
-      baseClasses += " bg-gray-100 border-gray-200 text-gray-400";
+      baseClasses += ' bg-gray-100 border-gray-200 text-gray-400';
     } else if (isFocused) {
-      baseClasses += " border-primary text-gray-900";
+      baseClasses += ' border-primary text-gray-900';
     } else if (isFilled) {
-      baseClasses += " border-primary text-gray-900";
+      baseClasses += ' border-primary text-gray-900';
     } else {
-      baseClasses += " border-gray-300 bg-white text-gray-900";
+      baseClasses += ' border-gray-300 bg-white text-gray-900';
     }
 
     return baseClasses;
@@ -112,15 +112,15 @@ export default function OTPInput({
 
   const getSpacingClasses = (index: number) => {
     if (length === 6) {
-      return index === 2 ? "mr-6" : index < length - 1 ? "mr-3" : "";
+      return index === 2 ? 'mr-6' : index < length - 1 ? 'mr-3' : '';
     }
-    return index < length - 1 ? "mr-3" : "";
+    return index < length - 1 ? 'mr-3' : '';
   };
 
   return (
     <View className={getContainerClasses()} testID={testID}>
       {otpArray.map((digit, index) => {
-        const isFilled = digit !== "";
+        const isFilled = digit !== '';
 
         return (
           <TouchableOpacity
@@ -139,16 +139,16 @@ export default function OTPInput({
               onKeyPress={({ nativeEvent }) =>
                 handleKeyPress(nativeEvent.key, index)
               }
-              keyboardType="numeric"
+              keyboardType='numeric'
               maxLength={1}
               selectTextOnFocus
               editable={!disabled}
               className={getInputClasses(index, isFilled, false)}
-              textAlign="center"
-              autoComplete="sms-otp"
-              textContentType="oneTimeCode"
-              placeholder="—"
-              placeholderTextColor="#D1D5DB"
+              textAlign='center'
+              autoComplete='sms-otp'
+              textContentType='oneTimeCode'
+              placeholder=''
+              placeholderTextColor='#D1D5DB'
             />
           </TouchableOpacity>
         );

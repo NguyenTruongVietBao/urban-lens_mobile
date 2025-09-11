@@ -5,6 +5,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Send } from 'lucide-react-native';
 import React from 'react';
 import { Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
 
 export default function VerifyEmailScreen() {
@@ -29,7 +30,7 @@ export default function VerifyEmailScreen() {
   };
 
   return (
-    <View className='flex-1 bg-white px-6 justify-center items-center py-20'>
+    <SafeAreaView className='flex-1 bg-white px-6 justify-center items-center'>
       <HeaderMini
         onBack={() => router.back()}
         title=''
@@ -61,6 +62,6 @@ export default function VerifyEmailScreen() {
           icon={<Send color={'white'} />}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
